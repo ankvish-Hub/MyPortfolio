@@ -5,10 +5,32 @@ import { BsGithub } from 'react-icons/bs';
 import { IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
 import { IoMdMail } from "react-icons/io";
 import { FaPhone } from "react-icons/fa6";
+import emailjs from 'emailjs-com';
 
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const formRef = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    emailjs.sendForm(
+      'service_7ys8h09',
+      'template_0rzv1gp',
+      formRef.current,
+      'AagIPhlIF8JtMTP0K'
+    )
+      .then(
+        (result) => {
+          alert('Message sent successfully!');
+          formRef.current.reset();
+        },
+        (error) => {
+          console.error('EmailJS error:', error);
+          alert('Failed to send message. Please try again.');
+        }
+      );
+  };
 
   return (
     <motion.div
@@ -35,11 +57,11 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className='lg:w-[40%]'
         >
-          <form className='w-full space-y-3 lg:space-y-5'>
-            <input className='border-2 px-5 py-3 border-black rounded placeholder:text-[#71717A] text-sm w-full' type="text" placeholder='Your name' required />
-            <input className='border-2 px-5 py-3 border-black rounded placeholder:text-[#71717A] text-sm w-full' type="email" placeholder='Email' required />
-            <input className='border-2 px-5 py-3 border-black rounded placeholder:text-[#71717A] text-sm w-full' type="text" placeholder='Your website (If exists)' />
-            <textarea className='resize-none border-2 px-5 py-3 h-32 border-black placeholder:text-[#71717A]  rounded text-sm w-full' placeholder='How can I help?*'></textarea>
+          <form ref={formRef} onSubmit={handleSubmit} className='w-full space-y-3 lg:space-y-5'>
+            <input name="name" className='border-2 px-5 py-3 border-black rounded placeholder:text-[#71717A] text-sm w-full' type="text" placeholder='Your name' required />
+            <input name="email" className='border-2 px-5 py-3 border-black rounded placeholder:text-[#71717A] text-sm w-full' type="email" placeholder='Email' required />
+            <input name="website" className='border-2 px-5 py-3 border-black rounded placeholder:text-[#71717A] text-sm w-full' type="text" placeholder='Your website (If exists)' />
+            <textarea name="message" className='resize-none border-2 px-5 py-3 h-32 border-black placeholder:text-[#71717A]  rounded text-sm w-full' placeholder='How can I help ?*' required></textarea>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -56,13 +78,20 @@ export default function Contact() {
               </motion.button>
 
               <div className='flex items-center gap-x-2 lg:gap-x-5'>
-                {[BiLogoGmail, IoLogoLinkedin, IoLogoTwitter, BsGithub].map((Icon, index) => (
+                {[
+                 { Icon: BiLogoGmail, href: "https://mail.google.com/mail/u/0/", target: "_blank" },
+                 { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/ankit-vishwakarma-77ab89235/", target: "_blank" },
+                 { Icon: IoLogoTwitter, href: "https://x.com/Ankit13201529?t=fLi0QMBj-Z6Z7FOZ4KXNnQ&s=09", target: "_blank" },
+                 { Icon: BsGithub, href: "https://github.com/ankvish-Hub", target: "_blank" },
+                ].map(({ Icon, href }, index) => (
                   <motion.a
                     key={index}
-                    href="#"
+                    href={href}
                     className="bg-white p-2 lg:p-3 rounded border-2 border-black"
                     whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
                     whileTap={{ scale: 0.9 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Icon className="w-4 h-4 lg:w-5 lg:h-5" />
                   </motion.a>
@@ -89,23 +118,25 @@ export default function Contact() {
             <motion.a
               whileHover={{ x: 5 }}
               className='flex items-center gap-2 group'
-              href="mailto:Youremail@gmail.com"
+              href="https://mail.google.com/mail/u/0/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <span className='border-2 transition-all border-transparent group-hover:border-black rounded-full p-1'>
                 <IoMdMail className="w-4 h-4 lg:w-5 lg:h-5" />
               </span>
-              Youremail@gmail.com
+              ankvish1102@gmail.com
             </motion.a>
 
             <motion.a
               whileHover={{ x: 5 }}
               className='flex items-center gap-2 group'
-              href="tele:1234567890"
+              href="tel:8928838109"
             >
               <span className='border-2 transition-all border-transparent group-hover:border-black rounded-full p-[5px]'>
                 <FaPhone className="w-3 h-3 lg:w-4 lg:h-4" />
               </span>
-              1234567890
+              +91 8928838109
             </motion.a>
           </div>
         </motion.div>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <div className="px-5 lg:px-28 flex justify-between flex-col lg:flex-row" id="about">
+    <div className="px-5 lg:px-28 flex justify-between flex-col lg:flex-row scroll-mt-32" id="about">
       <motion.div
         className="lg:w-1/2"
         initial={{ opacity: 0, x: -50 }}
@@ -25,16 +25,17 @@ export default function About() {
           About <span className="font-extrabold">Me</span>
         </h2>
 
+
+        <p className="text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-5">
+        I’m a passionate developer with a strong focus on frontend development and a Bachelor’s degree in Computer Applications. I specialize in building clean, responsive websites using HTML, CSS, JavaScript, and React.js. I also work with Python, PHP, and MySQL to develop dynamic web applications.
+        </p>
+
         <p className="text-[#71717A] text-sm/6 lg:text-base mt-5 lg:mt-10">
-          I'm a passionate full-stack developer specializing in **React.js & Node.js**. I thrive on blending technical expertise with sleek UI/UX design to build high-performing, user-friendly applications.
+        I’m always eager to learn new skills and keep up with the latest tech trends. I thrive on blending technical expertise with sleek UI/UX design to build high-performing, user-friendly applications.
         </p>
 
         <p className="text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-5">
-          My web development journey started in **2015**, and since then, I've continuously evolved, taking on new challenges and keeping up with the latest technologies. Today, I build **cutting-edge web applications** using **Next.js, TypeScript, NestJS, TailwindCSS, Supabase, and more**.
-        </p>
-
-        <p className="text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-5">
-          Beyond coding, I enjoy sharing insights on **Twitter**, engaging with **Indie Hackers**, and following the journey of **early-stage startups**. Feel free to follow me on **Twitter** or check out my projects on **GitHub**.
+        I enjoy building projects that challenge me to learn and grow — from portfolio websites to practical web apps. Outside of coding, I love connecting with other developers, learning about new trends, and sharing what I know.
         </p>
       </motion.div>
     </div>

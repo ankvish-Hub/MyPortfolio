@@ -32,7 +32,7 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`fixed lg:px-28 px-5 top-0 left-0 w-full z-50 bg-white p-5 transition-shadow duration-300 ${hasShadow ? "shadow-md" : "shadow-none"
+      className={`fixed lg:px-28 px-5 top-0 left-0 w-full z-50 bg-white p-1 transition-shadow duration-300 ${hasShadow ? "shadow-md" : "shadow-none"
         }`}
     >
       <div className="container mx-auto flex justify-between items-center">
@@ -40,13 +40,13 @@ export default function Navbar() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => scrollToSection("home")}
-          className="h-9 cursor-pointer"
-          src="/assets/logo.svg"
+          className="h-20 cursor-pointer"
+          src="/assets/logo.png"
           alt="Logo"
         />
 
         <ul className="hidden lg:flex items-center gap-x-7 font-semibold">
-          {["about", "skills", "projects", "contact"].map((section) => (
+          {["about", "skills", "projects", "certifications", "contact"].map((section) => (
             <motion.li
               key={section}
               className="group"
@@ -64,8 +64,11 @@ export default function Navbar() {
         </ul>
 
         <motion.a
-          href=""
+          href="/resume.pdf"
           className="hidden relative lg:inline-block px-4 py-2 font-medium group"
+          target="_blank"
+          download
+          
         >
           <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
           <span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
@@ -100,7 +103,7 @@ export default function Navbar() {
               <HiX />
             </button>
             <ul className="flex flex-col items-start ml-16 mt-28 h-full gap-y-6 font-semibold">
-              {["about", "skills", "projects", "contact"].map((section) => (
+              {["about", "skills", "projects", "certifications", "contact"].map((section) => (
                 <motion.li
                   key={section}
                   className="border-b"
@@ -112,8 +115,10 @@ export default function Navbar() {
                 </motion.li>
               ))}
               <motion.a
-                href=""
+                href="/resume.pdf"
                 className="relative inline-block px-4 py-2 font-semibold group"
+                target="_blank"
+                download
                 whileHover={{ scale: 1.1 }}
               >
                 <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>

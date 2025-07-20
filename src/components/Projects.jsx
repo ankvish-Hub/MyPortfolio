@@ -5,17 +5,17 @@ import { motion } from 'framer-motion';
 const projects = [
   {
     id: 1,
-    title: "Crypto Screener Application",
-    description: "A powerful tool for tracking and analyzing cryptocurrency trends in real-time.",
-    image: "/assets/project1.png",
-    link: "#"
+    title: "Focus On Today",
+    description: "The app provides a simple and intuitive interface where users can add tasks, mark them as completed. The app is built using HTML, CSS, and Javascrip",
+    image: "/assets/Focus.png",
+    link: "https://focus-on-today0.netlify.app/"
   },
   {
     id: 2,
-    title: "Stock Market Dashboard",
-    description: "An interactive dashboard to monitor stock prices and market trends efficiently.",
-    image: "/assets/project1.png",
-    link: "#"
+    title: "Weather Web App",
+    description: "Developed a Weather App using HTML, CSS, JavaScript, and API integration to display real-time weather information in a responsive design.",
+    image: "/assets/weather.png",
+    link: "https://weather-web-apppp.netlify.app/"
   }
 ];
 

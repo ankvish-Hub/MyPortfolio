@@ -6,6 +6,7 @@ import About from './components/About'
 import Footer from './components/Footer'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
+import Certifications from './components/Certifications'
 import CustomCursor from './utils/CursorAnimation'
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
       <Skills />
       <About />
       <Projects />
+      <Certifications />
       <Contact />
 
       <Footer />

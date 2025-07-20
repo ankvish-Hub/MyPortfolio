@@ -4,6 +4,7 @@ import { IoLogoLinkedin, IoLogoTwitter } from "react-icons/io5";
 import { BiLogoGmail } from "react-icons/bi";
 import { BsGithub } from "react-icons/bs";
 import { TypeAnimation } from "react-type-animation";
+import Certifications from "../components/Certifications";
 
 export default function Home() {
   return (
@@ -33,12 +34,13 @@ export default function Home() {
             <motion.h2 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}>
               Hello, <TypeAnimation
                 sequence={[
-                  'I am Sathish Kumar',
+                  'I am Ankit Vishwakarma',
                   1000,
-                  // 'I am a Web Developer',
-                  // 1000,
-                  // 'I am a UI/UX Designer',
-                  // 1000,
+                  'I am a Web Developer',
+                  1000,
+                  'I am a UI/UX Designer',
+                  1000,
+                  
                 ]}
                 speed={10}
                 style={{ fontWeight:600 }}
@@ -65,7 +67,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
-            Passionate about technology, I specialize in Web Development and Web Designing. I’m focused on building innovative solutions and continuously expanding my skills. My goal is to grow as a developer and contribute to impactful projects in the tech industry.
+            Passionate about technology, I specialize in Frontend Development and Web Development. I’m focused on building innovative solutions and continuously expanding my skills. My goal is to grow as a developer and contribute to impactful projects in the tech industry.
           </motion.p>
 
           <motion.div
@@ -74,10 +76,16 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
           >
-            {[BiLogoGmail, IoLogoLinkedin, IoLogoTwitter, BsGithub].map((Icon, index) => (
+            {[
+              { Icon: BiLogoGmail, href: "https://mail.google.com/mail/u/0/", target: "_blank" },
+              { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/ankit-vishwakarma-77ab89235/", target: "_blank" },
+              { Icon: IoLogoTwitter, href: "https://x.com/Ankit13201529?t=fLi0QMBj-Z6Z7FOZ4KXNnQ&s=09", target: "_blank" },
+              { Icon: BsGithub, href: "https://github.com/ankvish-Hub", target: "_blank" },
+            ].map(({ Icon, href, target }, index) => (
               <motion.a
                 key={index}
-                href="#"
+                href={href}
+                target={target}
                 className="bg-white p-2 lg:p-3 rounded border-2 border-black"
                 whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
                 whileTap={{ scale: 0.9 }}
@@ -97,6 +105,7 @@ export default function Home() {
           <img className="h-full w-full" src="/assets/hero-vector.svg" alt="Hero Vector" />
         </motion.div>
       </div>
+      <Certifications />
     </div>
   );
 }
